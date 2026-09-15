@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digabi - Seguridad y Ropa de Construcción</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body, html {
+            width: 100%;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            background-color: #111;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('fonod cielo 1 .png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+            pointer-events: none;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.6rem;
+            color: #ffffff;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 0.85rem; /* Más pequeño */
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e9864a;
+        }
+
+        section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            padding: 120px 5% 50px 5%; 
+            background: transparent;
+        }
+
+        #hero {
+            align-items: flex-end; 
+            overflow: hidden;
+            padding: 0; 
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 25%;
+            left: 8%;
+            text-align: left;
+            z-index: 3;
+            max-width: 500px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #e9864a;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+        }
+
+        .piedra-logo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .piedra-logo img {
+            max-height: 110vh;
+            margin-bottom: -14vh;
+            transform: scale(1.4);
+            transform-origin: bottom center;
+        }
+
+        #nosotros {
+            align-items: center;
+        }
+
+        .nosotros-caja {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background: rgba(20, 20, 20, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 60px;
+            max-width: 1200px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .nosotros-texto h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            color: #e9864a;
+        }
+
+        .nosotros-texto p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+
+        .nosotros-imagen img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid rgba(233, 134, 74, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        #productos {
+            flex-direction: column;
+        }
+
+        .titulo-seccion {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .catalogo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .producto-card {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .producto-img {
+            width: 100%;
+            height: 220px;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #555;
+            font-size: 2.5rem;
+        }
+
+        .producto-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .producto-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .producto-info h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .producto-info p {
+            font-size: 0.9rem;
+            color: #bbbbbb;
+        }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 60px 5% 20px 5%;
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid rgba(233, 134, 74, 0.5);
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            color: #e9864a;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #aaaaaa;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .redes-sociales a {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        .redes-sociales a:hover { color: #e9864a; }
+
+        .mapa-container {
+            width: 100%;
+            height: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+        .mapa-container iframe { width: 100%; height: 100%; border: none; }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            header { padding: 20px 30px; }
+            nav { display: none; }
+            
+            .hero-text {
+                top: 15%;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                width: 90%;
+            }
+            .hero-text h1 { font-size: 2.2rem; }
+            
+            .nosotros-caja {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-container"></div>
+    <div class="overlay"></div>
+
+    <header>
+        <div class="logo">DIGABI</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#productos">Catálogo</a></li>
+                <li><a href="#ubicacion">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-text">
+            <h1>Expertos en EPP</h1>
+            <p>Ropa Industrial de Alta Exigencia</p>
+        </div>
+        <div class="piedra-logo">
+            <img src="pierda modificada.png" alt="Roca Digabi">
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <div class="nosotros-caja">
+            <div class="nosotros-texto">
+                <h2>Solidez en cada Obra</h2>
+                <p>En Digabi confeccionamos indumentaria de alta durabilidad y suministramos Equipos de Protección Personal (EPP) certificados.</p>
+                <p>Transmitimos firmeza y profesionalismo en cada prenda, convirtiendo la protección en el símbolo de quienes construyen el país. Nuestra seguridad es el respaldo del trabajador.</p>
+            </div>
+            <div class="nosotros-imagen">
+                <img src="casco muestra .png" alt="Genera esta imagen: Un casco de seguridad industrial amarillo posado de forma elegante sobre rocas oscuras, con fondo desenfocado">
+            </div>
+        </div>
+    </section>
+
+
+    <section id="productos">
+        <h2 class="titulo-seccion">Catálogo</h2>
+        <div class="catalogo-grid">
+            
+            <div class="producto-card">
+                <div class="producto-img">
+                    <img src="casco red.png" alt="Casco industrial EPP">
+                </div>
+                <div class="producto-info">
+                    <h3>Cascos de Seguridad</h3>
+                    <p>Protección craneal certificada para alto impacto.</p>
+                </div>
+            </div>
+
+            <div class="producto-card">
+                <div class="producto-img">
+                    <img src="chaleco.png" alt="Chaleco reflectivo de seguridad industrial">
+                </div>
+                <div class="producto-info">
+                    <h3>Chalecos Reflectivos</h3>
+                    <p>Alta visibilidad de día y noche con cintas.</p>
+                </div>
+            </div>
+
+            <div class="producto-card">
+                <div class="producto-img">
+                    <img src="lentes 2.png" alt="Genera esta imagen: Lentes de protección">
+                </div>
+                <div class="producto-info">
+                    <h3>Lentes Industriales</h3>
+                    <p>Protección ocular contra polvo y rayos UV.</p>
+                </div>
+            </div>
+
+            <div class="producto-card">
+                <div class="producto-img">
+                    <img src="polo orange.png" alt="Polo de trabajo industrial doblado">
+                </div>
+                <div class="producto-info">
+                    <h3>Ropa Corporativa</h3>
+                    <p>Polos y uniformes personalizados por Digabi.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="ubicacion">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>DIGABI</h3>
+                <p>Equipamiento de Protección Personal y Ropa Industrial. Solidez para quienes construyen el futuro.</p>
+                <div class="redes-sociales">
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Carabayllo, Lima</p>
+                <p><i class="fa-solid fa-phone"></i> +51 6767676767676</p>
+                <p><i class="fa-solid fa-envelope"></i> ventas@digabi.com</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Ubicación</h3>
+                <div class="mapa-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124874.14815414339!2d-77.080242!3d-12.0262676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c5f619ee3ec3%3A0x14206cb9cc452e4a!2sLima!5e0!3m2!1ses!2spe!4v1690000000000!5m2!1ses!2spe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Digabi. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digabi - Seguridad y Ropa de Construcción</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body, html {
+            width: 100%;
+            min-height: 100vh;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            background-color: #1a1a1a;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('fonod cielo 1 .png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: 2;
+            pointer-events: none;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #e9864a;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e9864a;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+        section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            padding: 100px 20px 20px 20px; 
+        }
+        #hero {
+            align-items: flex-end; 
+            overflow: hidden;
+            padding: 0; 
+        }
+
+        .piedra-logo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .piedra-logo img {
+            max-height: 110vh;
+            margin-bottom: -14vh;
+            transform: scale(1.4);
+            transform-origin: bottom center;
+        }
+        #nosotros {
+            padding: 0 5%;
+            background-image: url('image_634f00.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .roca-continua {
+            position: absolute;
+            top: -5%; 
+            bottom: -5%; 
+            left: 50%;
+            transform: translateX(-50%);
+            height: 110%; 
+            z-index: 1;
+            object-fit: contain;
+            pointer-events: none;
+            filter: drop-shadow(0 0 30px rgba(0,0,0,0.6)); 
+        }
+
+        .nosotros-container-limpio {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1300px;
+            position: relative;
+            z-index: 2; 
+        }
+
+        .texto-libre {
+            width: 38%; 
+            padding: 20px 0;
+        }
+
+        .texto-libre.izquierda {
+            text-align: right; 
+            padding-right: 20px;
+        }
+
+        .texto-libre.derecha {
+            text-align: left; 
+            padding-left: 20px;
+        }
+
+        .texto-libre h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.0rem;
+            font-weight: 800;
+            line-height: 1.1;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8); 
+        }
+
+        .texto-libre p {
+            font-size: 1 rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 15px;
+            font-weight: 400;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+        }
+
+        @media (max-width: 900px) {
+            header {
+                padding: 20px 30px;
+            }
+            .nosotros-container-limpio {
+                flex-direction: column;
+                justify-content: center;
+                gap: 50px;
+            }
+            .texto-libre {
+                width: 90%;
+                text-align: center !important; 
+                padding: 15px;
+                background-color: rgba(0,0,0,0.6);
+                border-radius: 10px;
+            }
+            .roca-continua {
+                opacity: 0.5; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-container"></div>
+    <div class="overlay"></div>
+
+    <header>
+        <div class="logo">DIGA<span>BI</span></div>
+        <nav>
+            <ul>
+                <li><a href="#hero">inicio</a></li>
+                <li><a href="#nosotros">sobre nosotros</a></li>
+                <li><a href="#productos">catálogo</a></li>
+                <li><a href="#ubicacion">ubicación</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="hero">
+        <div class="piedra-logo">
+            <img src="pierda modificada.png" alt="Roca Digabi Inicio">
+        </div>
+    </section>
+    <section id="nosotros">
+        <img src="boceto_-removebg-preview.png" alt="Columna de Roca Digabi" class="roca-continua">
+
+        <div class="nosotros-container-limpio">
+            <div class="texto-libre izquierda">
+                <h2>Diseñada para<br>Exigir al Máximo</h2>
+                <p>En Digabi confeccionamos indumentaria de alta durabilidad y suministramos Equipos de Protección Personal (EPP) certificados.</p>
+                <p>Desde polos de alta visibilidad con cinta reflectiva, hasta cascos, chalecos técnicos y lentes de protección industrial.</p>
+            </div>
+            <div class="texto-libre derecha">
+                <h2>Solidez y Orgullo<br>en cada Obra</h2>
+                <p>La seguridad no es solo una norma, es el respaldo que le da confianza al trabajador en el campo.</p>
+                <p>Transmitimos firmeza y profesionalismo en cada prenda, convirtiendo la protección en el símbolo de quienes construyen el país.</p>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

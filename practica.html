@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGABI - Equipos de Protección Personal</title>
+    <style>
+        /* --- RESET BÁSICO --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* --- ENCABEZADO PRINCIPAL --- */
+        .header-principal {
+            background-color: black;
+            display: flex; /* Mantiene el logo a la izq. y el menú a la der. */
+            justify-content: space-between; 
+            align-items: center;
+            padding: 20px 40px;
+        }
+
+        /* --- NUEVO: CONTENEDOR DEL LOGO (IMAGEN + TEXTO) --- */
+        .contenedor-logo {
+            display: flex; /* Alinea la imagen y el texto horizontalmente */
+            align-items: center; /* Los centra verticalmente entre sí */
+            gap: 15px; /* Espacio de 15px entre la imagen y el texto */
+        }
+
+        .imagen-logo {
+            width: 50px; /* Define el ancho de tu imagen para que no ocupe toda la pantalla */
+            height: auto; /* Mantiene la proporción de la imagen */
+        }
+
+        .texto-logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #FF7F00; /* Naranja corporativo */
+            letter-spacing: 2px;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        .menu-navegacion ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu-navegacion a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .menu-navegacion a:hover {
+            color: #4CAF50; /* Verde al pasar el mouse */
+        }
+
+        /* --- SECCIÓN PRINCIPAL (Hero Section) --- */
+        .seccion-hero {
+            background-image: url('../IMG/img pag web one.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .hero-content {
+            max-width: 500px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .primer-texto {
+            display: block;
+            color: #FF7F00;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .segundo-texto {
+            color: #ffffff;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-principal">
+        <!-- AQUÍ ESTÁ TU NUEVO CÓDIGO INTEGRADO -->
+        <div class="contenedor-logo">
+            <!-- Nota: Asegúrate de tener una imagen llamada "logo.png" en la misma carpeta, o cambia la ruta en el src -->
+            <img src="logo.png" alt="Logo Digabi" class="imagen-logo">
+            <span class="texto-logo">DIGABI</span>
+        </div>
+
+        <nav class="menu-navegacion">
+            <ul>
+                <li><a href="#menu">MENÚ</a></li>
+                <li><a href="#catalogo">CATÁLOGO</a></li>
+                <li><a href="#nosotros">¿QUIÉNES SOMOS?</a></li>
+                <li><a href="#marcas">MARCAS</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="seccion-hero">
+        <div class="hero-content">
+            <span class="primer-texto">Protección total y a medida para tu obra</span>
+            <p class="segundo-texto">Protege a tu equipo. Encuentra el EPP ideal y nuestra ropa de construcción propia. ¡En Digabi te asesoramos!</p>
+        </div>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
